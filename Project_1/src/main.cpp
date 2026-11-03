@@ -26,8 +26,11 @@ int main(){
 	// TODO:
 	// MIPS rating
 
-	// TODO:
 	// Print values
+	printf("Total number of instructions:	%d\n", inst_cnt);
+	printf("Average CPI:			%f\n", avg_CPI);
+	printf("Total execution time:		%d ms\n", exec_time);
+	printf("MIPS Rating:			%f MIPS\n", MIPS);
 
 	return 0;
 }
