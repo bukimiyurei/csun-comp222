@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(){
 	// instruction count (millions)
@@ -14,7 +15,7 @@ int main(){
 	// clock rate (GHz)
 	double clk_rate = 2;
 
-	// Instruction count
+	// Total instruction count
 	double inst_cnt = arithmetic_cnt + ld_store_cnt + branch_cnt;
 
 	// Average CPI
@@ -26,15 +27,12 @@ int main(){
 	// Add CPIs together, divide by total number of instructions
 	double avg_CPI = (CPI_arith + CPI_load + CPI_branch) / inst_cnt;
 
-	// TODO:
 	// Total CPU exec time (milliseconds)
-	// (inst_cnt * avg_CPI) / clk_rate
-	double exec_time = 2.0;
+	double exec_time = (inst_cnt * avg_CPI) / clk_rate;
 	
-
-	// TODO:
 	// MIPS rating
-	double MIPS = 5.0;
+	double clk_rate_MHz = clk_rate * pow(10.0, 3.0);	// convert clock rate from GHz to MHz
+	double MIPS = clk_rate_MHz / avg_CPI;
 
 	// Print values
 	printf("Total number of instructions:	%.2f million\n", inst_cnt);
